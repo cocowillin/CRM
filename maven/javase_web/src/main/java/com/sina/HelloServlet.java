@@ -20,6 +20,6 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         out.println("Hello maven web");
-
+        System.out.println("加油啊！！！");
     }
 }
