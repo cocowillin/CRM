@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--约束文件-->
+<mapper namespace="test1">
+    <select id="select" resultType="com.sina.domain.Student">
+    select  sid,sname,age from t_student order by age;
+    </select>
+    <insert id="insert">
+        insert into t_student values (#{sid},#{sname},#{age});
+    </insert>
+</mapper>
