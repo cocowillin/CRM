@@ -14,7 +14,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <mapper resource="com/sina/dao/StudentDao.xml"/>
     </mappers>
 </configuration>
 <!--mybatis 数据库主配置信息 sql配置文件的位置-->

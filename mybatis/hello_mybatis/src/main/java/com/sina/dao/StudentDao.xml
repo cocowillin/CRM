@@ -4,6 +4,6 @@
 <!--约束文件-->
 <mapper namespace="test1">
     <select id="select" resultType="com.sina.domain.Student">
-    select  sid,sname,age from t_student where sid = #{sid};
+    select  sid,sname,age from t_student order by age;
     </select>
 </mapper>
