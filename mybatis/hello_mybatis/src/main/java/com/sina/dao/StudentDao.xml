@@ -6,4 +6,7 @@
     <select id="select" resultType="com.sina.domain.Student">
     select  sid,sname,age from t_student order by age;
     </select>
+    <insert id="insert">
+        insert into t_student values (#{sid},#{sname},#{age});
+    </insert>
 </mapper>

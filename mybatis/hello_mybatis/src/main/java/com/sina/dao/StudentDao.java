@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface StudentDao {
     public List<Student> selectStudents();
+    public int insertStudent(Student stu);//添加了几行，也就是几个对象 就返回几个int；
 }
