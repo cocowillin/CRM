@@ -1,5 +1,7 @@
 package com.sina;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInterceptor;
 import com.sina.dao.StudentDao;
 import com.sina.domain.Student;
 import com.sina.util.MybatisUtils;
@@ -26,10 +28,33 @@ public class MybatisTest1 {
         SqlSession session = MybatisUtils.getSqlsession();
         //获得会话对象；
         StudentDao dao = session.getMapper(StudentDao.class);
-        List<Student> studentList = dao.selectStudents();
-        for(Student stu:studentList){
-            System.out.println(stu);
+        Student stu = new Student();
+        stu.setAge(40);
+        stu.setSname(null);
+
+        List<Student> studentList = dao.selectStudentIf(stu);
+        for (Student stu1:studentList){
+            System.out.println(stu1);
         }
+        session.close();
+    }
+    @Test
+    public void selectAll(){
+
+
+            SqlSession sqlsession = MybatisUtils.getSqlsession();
+            StudentDao dao = sqlsession.getMapper(StudentDao.class);
+            PageHelper.startPage(1,2);
+            List<Student> studentList = dao.selectAll();
+
+            for (Student stu:studentList){
+                System.out.println(stu);
+            }
+            sqlsession.close();
+
+
+
+    }
 
 
     }
@@ -56,4 +81,4 @@ public class MybatisTest1 {
 
     }*/
 
-}
+

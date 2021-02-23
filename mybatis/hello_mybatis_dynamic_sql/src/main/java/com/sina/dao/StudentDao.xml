@@ -3,21 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--约束文件-->
 <mapper namespace="com.sina.dao.StudentDao">
-    <select id="selectStudents" resultType="stu">
-    select * from t_student order by age;
-    </select>
-    <insert id="insertStudents">
-        insert into t_student values (#{sid},#{sname},#{age});
-    </insert>
-    <select id="selectStudent" resultType="com.sina.domain.Student" >
-        select sid,sname,age from t_student where sid=#{sid};
-    </select>
-    <select id="selectMultiParam" resultType="com.sina.domain.Student">
-        select *from t_student where sid=#{arg0} or age=#{arg1};
-    </select>
-    <select id="selectMultiObject" resultType="com.sina.domain.Student">
-        select  *from  t_student where sid=#{sid} or age=#{age};
-    </select>
-    <!--通过对象来传入多个参数-->
+        <select id="selectStudentIf" resultType="com.sina.domain.Student">
+            select *from t_student where 1&gt;2
+            <if test="sname!=null and sname!=''">
+            sname=#{sname}
+        </if>
+            <if test="age>0">
+             or   age&gt;#{age} </if>
+/* 小于大于的使用 and没加*/
+        </select>
+        <select id="selectAll" resultType="com.sina.domain.Student">
+            select *from t_student order  by sid
+/* sql语句中不要加分号；*/
+        </select>
 
 </mapper>
