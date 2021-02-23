@@ -6,6 +6,7 @@ import com.sina.dao.StudentDao;
 import com.sina.domain.Student;
 import com.sina.util.MybatisUtils;
 import com.sina.vo.QueryParam;
+import com.sina.vo.StudentAllmsg;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,6 +16,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author radio
@@ -56,9 +59,39 @@ public class MybatisTest1 {
 
 
     }
+    @Test
+    public void selectMultiTable(){//多表查询
+            SqlSession sqlsession = MybatisUtils.getSqlsession();
+            StudentDao dao = sqlsession.getMapper(StudentDao.class);
+            List< Map<String, Object>> stringObjectMap = dao.selectMultiTable();
+            for (Map<String,Object> map:stringObjectMap){
+                Set<String> set = map.keySet();
+                for (String key:set){
+                    System.out.println("key="+key);
+                    System.out.println("value="+map.get(key));
+
+                }
+                System.out.println("_______________________");
+
+            }
+
+            sqlsession.close();
 
 
     }
+    @Test
+    public void selectAllmsg(){
+        SqlSession sqlsession = MybatisUtils.getSqlsession();
+        StudentDao dao = sqlsession.getMapper(StudentDao.class);
+        List<StudentAllmsg> studentAllmsgList=dao.selectStudentAllmsg("2");
+        for (StudentAllmsg studentAllmsg:studentAllmsgList){
+            System.out.println(studentAllmsg);
+        }
+
+    }
+
+
+}
    /* @Test
     public void selectTestById(){
         SqlSession sqlsession = MybatisUtils.getSqlsession();

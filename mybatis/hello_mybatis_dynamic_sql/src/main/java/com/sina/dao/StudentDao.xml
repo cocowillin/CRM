@@ -16,5 +16,20 @@
             select *from t_student order  by sid
 /* sql语句中不要加分号；*/
         </select>
+        <select id="selectMultiTable" resultType="map">
+            select s.sname,c.cname
+            from t_student s
+            join t_class c
+            on s.classId=c.cid;
+        </select>
+        <select id="selectStudentAllmsg" resultType="com.sina.vo.StudentAllmsg">
+            select
+                s.*,c.*
+            from t_student s
+            join t_class c
+            on s.classId=c.cid
+            where
+            s.sid like '%' #{sid} '%'
+        </select>
 
 </mapper>
