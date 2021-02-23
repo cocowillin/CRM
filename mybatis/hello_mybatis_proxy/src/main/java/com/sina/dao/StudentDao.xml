@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--约束文件-->
 <mapper namespace="com.sina.dao.StudentDao">
-    <select id="selectStudents" resultType="com.sina.domain.Student">
+    <select id="selectStudents" resultType="stu">
     select * from t_student order by age;
     </select>
     <insert id="insertStudents">
         insert into t_student values (#{sid},#{sname},#{age});
     </insert>
-    <select id="selectStudent" resultType="com.sina.domain.Student" parameterType="java.lang.String">
+    <select id="selectStudent" resultType="com.sina.domain.Student" >
         select sid,sname,age from t_student where sid=#{sid};
     </select>
     <select id="selectMultiParam" resultType="com.sina.domain.Student">
