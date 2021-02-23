@@ -51,6 +51,7 @@ public class MybatisTest1 {
                 System.out.println(stu);
             }
             sqlsession.close();
+            System.out.println("这回看能不能回退啦  啦啦啦啦啦");
 
 
 
