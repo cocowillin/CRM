@@ -7,7 +7,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
-        <url-pattern>/settings/user/xxx.do</url-pattern>
+        <url-pattern>/settings/user/login.do</url-pattern>
     </servlet-mapping>
     <!--欢迎页面的设置-->
     <welcome-file-list>
