@@ -55,14 +55,15 @@ import java.lang.reflect.Proxy;
     }
 
     public class Dynamic_proxyTest{
-        public static void main(String[] args) {
-            SuperMan superMan=new SuperMan();
-            Human proxyInstance = (Human) ProxyFactory.getProxyInstance(superMan);
-            proxyInstance.eat("番茄炒蛋");
-            String belief = proxyInstance.getBelief();
-            System.out.println(belief);
+    public static void main(String[] args) {
+        SuperMan superMan = new SuperMan();
+        Human proxyInstance = (Human) ProxyFactory.getProxyInstance(superMan);
+        proxyInstance.eat("番茄炒蛋");
+        String belief = proxyInstance.getBelief();
+        System.out.println(belief);
+    }
 
-        }
+
 }
 
 

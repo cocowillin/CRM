@@ -22,6 +22,7 @@ import java.util.Map;
 public class UserController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json;charset=utf-8");
         System.out.println("进入用户控制器");
         String path = req.getServletPath();//获得url pattern
         if ("/settings/user/login.do".equals(path)){
@@ -60,12 +61,13 @@ public class UserController extends HttpServlet {
                 /*
                 * 返回{"success" :true}
                 * */
-                PrintJson.printJsonObj(resp,true);
+                PrintJson.printJsonFlag(resp,true);
             } catch (Exception e) {
                 System.out.println("登录失败");
                 e.printStackTrace();
                 //执行到catchy语句块中，说明业务层为我们验证登录失败，抛出异常
                 String msg=e.getMessage();
+                System.out.println(msg);
                 Map<String, Object> map = new HashMap<>();
                 map.put("success",false);
                 map.put("msg",msg);
