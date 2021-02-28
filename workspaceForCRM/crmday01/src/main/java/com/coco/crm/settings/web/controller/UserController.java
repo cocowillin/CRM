@@ -56,12 +56,13 @@ public class UserController extends HttpServlet {
                 //把获得的对象放入session中
                 System.out.println("是否执行到这了");
                 req.getSession().setAttribute("user", user);
-                System.out.println("登录成功了");
+
                 //如果程序执行到此处，说明程序业务层没有为controller抛出任何异常
                 /*
                 * 返回{"success" :true}
                 * */
                 PrintJson.printJsonFlag(resp,true);
+                System.out.println("登录成功了");
             } catch (Exception e) {
                 System.out.println("登录失败");
                 e.printStackTrace();
@@ -72,6 +73,7 @@ public class UserController extends HttpServlet {
                 map.put("success",false);
                 map.put("msg",msg);
                 PrintJson.printJsonObj(resp,map);
+                System.out.println("登录失败了了");
             }
 
 

@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 public class TransactionInvocationHandler implements InvocationHandler{
 	
-	private Object target;//目标对象；
+	private Object target;//目标对象；属性可以是引用 基本数据类型跟引用都是一个吊样
 
 	public TransactionInvocationHandler(Object target) {
 		this.target = target;

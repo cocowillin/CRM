@@ -56,13 +56,15 @@
 					//如果登录成功
 					if (data.success){
 						//成功就加载到工作台的欢迎页面
-
+						alert("给我中！！");
 						window.location.href="workbench/index.html";
-
+						console.log("11111");
 					//如果登录失败
 					}else {
 						//失败就返回提示信息
+						alert("登录失败");
 						$("#msg").html(data.msg);
+						console.log(22222222);
 					}
 
 				}
