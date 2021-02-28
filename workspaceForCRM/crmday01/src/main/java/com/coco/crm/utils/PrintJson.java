@@ -57,6 +57,7 @@ public class PrintJson {
 		ObjectMapper om = new ObjectMapper();
 
 		try {
+			response.setContentType("application/json;charset=utf-8");
 			String json = om.writeValueAsString(obj);
 			response.getWriter().print(json);
 

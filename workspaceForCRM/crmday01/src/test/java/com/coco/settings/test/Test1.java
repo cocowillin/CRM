@@ -1,44 +1,21 @@
 package com.coco.settings.test;
 
+
+
+
+
+
+
 import com.coco.crm.settings.dao.UserDao;
 import com.coco.crm.settings.domain.User;
 import com.coco.crm.utils.MD5Util;
-import com.coco.crm.utils.PrintJson;
 import com.coco.crm.utils.SqlSessionUtil;
-import org.apache.ibatis.logging.Log;
-import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
-import org.junit.Before;
 import org.junit.Test;
-/*import org.apache.commons.logging.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.springframework.mock.web.*;
-import org.springframework.test.context.*;
-import org.springframework.test.context.junit4.*;
-import org.springframework.test.context.support.*;
-import javax.servlet.http.*;
 
-import org.apache.commons.logging.*;
-import org.easymock.*;
-import org.junit.*;
-import org.junit.runner.*;
-import org.springframework.test.context.*;
-import org.springframework.test.context.junit4.*;
-import org.springframework.test.context.support.*;*/
-
-
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author radio
- * @create 2021-02-25 11:34 PM
- */
-/*@RunWith(SpringJUnit4ClassRunner.class)
-@TestExecutionListeners( { DependencyInjectionTestExecutionListener.class })
-*//*@ContextConfiguration(locations={ "classpath:resources/mybatis-config.xml"})*/
 public class Test1 {
     @Test
     //验证不通过前端传值，直接mybatis传值测试；
@@ -48,7 +25,7 @@ public class Test1 {
         Map<String, String> map = new HashMap<>();
         map.put("loginAct","zs");
         String psw="123";
-        psw=MD5Util.getMD5(psw);
+        psw= MD5Util.getMD5(psw);
         map.put("loginPwd",psw);
         User user = dao.login(map);
         System.out.println(user);

@@ -22,7 +22,7 @@ import java.util.Map;
 public class UserController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json;charset=utf-8");
+
         System.out.println("进入用户控制器");
         String path = req.getServletPath();//获得url pattern
         if ("/settings/user/login.do".equals(path)){
